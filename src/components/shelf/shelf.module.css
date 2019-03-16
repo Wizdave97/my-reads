@@ -1,0 +1,24 @@
+.shelf{
+  display: flex;
+  width:100%;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  padding:20px;
+
+}
+.title{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.header{
+  padding:10px;
+  text-align: left;
+  width:100%;
+}
+.books{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
