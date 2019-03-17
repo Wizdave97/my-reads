@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './library.module.css';
-import { getAll } from '../../BooksAPI';
+import { getAll, update } from '../../BooksAPI';
 import Shelf from '../shelf/Shelf';
+
 
 class Library extends Component {
   state={
@@ -11,8 +12,37 @@ class Library extends Component {
     networkError:false,
     pending:true
   }
+  updateBooks=(book,shelf)=>{
+    return update(book,shelf).then(res=>{
+      getAll().then(books=>{
+        let currentlyReading=[], read=[], wantToRead=[];
+        for(let book of books){
+          if(book.shelf==='read'){
+            read.push(book)
+          }
+          else if(book.shelf==='currentlyReading'){
+            currentlyReading.push(book)
+          }
+          else if(book.shelf==='wantToRead'){
+            wantToRead.push(book)
+          }
+        }
 
-  componentDidMount() {
+        this.setState({
+          currentlyReading:currentlyReading,
+          read:read,
+          wantToRead:wantToRead
+        })
+      }).catch(error=>{
+        this.setState(state=>({
+          networkError:!state.networkError,
+          pending:!state.pending
+        }))
+      })
+
+    })
+  }
+  getBooks=()=>{
     getAll().then(books=>{
       let currentlyReading=[], read=[], wantToRead=[];
       for(let book of books){
@@ -40,7 +70,11 @@ class Library extends Component {
       }))
     })
   }
+  componentDidMount() {
+    this.getBooks()
+    }
   render() {
+
     let networkError,pending,shelfs;
     if(this.state.pending){
       pending=(<h3 style={{textAlign:'center'}}>Loading...</h3>);
@@ -51,9 +85,9 @@ class Library extends Component {
     else if(!this.state.networkError && !this.state.pending){
       shelfs=(
             <React.Fragment>
-              <Shelf books={this.state.currentlyReading} title={'Currently Reading'}/><hr></hr>
-              <Shelf books={this.state.read} title={'Read'}/><hr></hr>
-              <Shelf books={this.state.wantToRead} title={'Want to Read'}/>
+              <Shelf update={this.updateBooks} getBooks={this.getBooks} books={this.state.currentlyReading} title={'Currently Reading'}/>
+              <Shelf update={this.updateBooks} getBooks={this.getBooks} books={this.state.read} title={'Read'}/>
+              <Shelf update={this.updateBooks} getBooks={this.getBooks} books={this.state.wantToRead} title={'Want to Read'}/>
             </React.Fragment>
           )
     }
@@ -62,6 +96,7 @@ class Library extends Component {
 
 
     return(
+
       <div className={classes.main}>
         <nav className={classes.navbar}>
           <h2>My Library</h2>
@@ -72,6 +107,7 @@ class Library extends Component {
         {shelfs}
         </div>
       </div>
+
     )
   }
 }
