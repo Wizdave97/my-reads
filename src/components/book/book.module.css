@@ -21,7 +21,7 @@
   border-radius: 15px 15px;
   position: absolute;
   bottom:-15px;
-  right:-15px;
+  right:5px;
   background: green;
   cursor: pointer;
 }
@@ -32,6 +32,6 @@
 }
 @media screen and (min-width:699px){
   .book{
-    width:20%;
+    width:18%;
   }
 }

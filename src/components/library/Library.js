@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from './library.module.css';
 import { getAll, update } from '../../BooksAPI';
 import Shelf from '../shelf/Shelf';
+import Add from '../UI/Add';
+import { Link } from "react-router-dom";
 
 
 class Library extends Component {
@@ -106,6 +108,7 @@ class Library extends Component {
         {networkError}
         {shelfs}
         </div>
+        <Link to="/search"><div className={classes.link}><Add/></div></Link>
       </div>
 
     )

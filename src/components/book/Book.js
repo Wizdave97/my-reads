@@ -11,6 +11,9 @@ class Book extends Component {
     checkboxes:{CurrentlyReading:false,read:false,none:false,wantToRead:false}
   }
   componentDidMount(){
+    /*
+    Add the correct state of the shelf for the book instance
+    */
     if(!shelves.includes(this.props.book.shelf)){
       this.setState(state=>({
         checkboxes:{
@@ -27,12 +30,13 @@ class Book extends Component {
       }
     }))
   }
-
+  // Function to show modal that hold info about the shelve the book is currently on
   showModalHandler=()=>{
     this.setState(state=>({
       modalShow:!state.modalShow
     }))
   }
+  //handler that controls when a checkbox is selected by ensuring only one checkbox is selected at a time
   onCheckboxSelect=(event)=>{
     const name=event.target.name;
     let checkboxes=this.state.checkboxes;

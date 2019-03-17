@@ -20,15 +20,15 @@
   flex-wrap:wrap;
   padding:10px;
 }
-hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 0.5px;
-  border-color:rgba(0, 0, 0, 0.5);
+.link{
+  width:60px;
+  height:60px;
+  border-radius: 30px 30px;
+  background: green;
+  position:fixed;
+  top:80vh;
+  right:5vh;
+  cursor:pointer;
 }
 @media screen and (min-width:900px){
   .content{

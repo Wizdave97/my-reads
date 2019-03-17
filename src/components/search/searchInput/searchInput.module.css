@@ -1,0 +1,20 @@
+.search-container{
+  width:100%;
+  display:flex;
+  flex-wrap:nowrap;
+  max-height:auto;
+  box-shadow: -10px -10px 15px rgba(0,0,0,0.3), 10px 10px 15px rgba(0,0,0,0.3);
+  height:60px;
+
+}
+.search-books{
+  outline:none;
+  width:80%;
+  padding:20px;
+  font-size: 1.2em;
+  border:none;
+}
+.back-button{
+  width:20%;
+  max-height:60px;
+}
