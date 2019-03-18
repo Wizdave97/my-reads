@@ -41,7 +41,7 @@ class Book extends Component {
     const name=event.target.name;
     let checkboxes=this.state.checkboxes;
     Object.keys(checkboxes).map(key=>{
-      checkboxes[key]=false;
+      return checkboxes[key]=false;
     })
     checkboxes[name]=true
     this.setState({
@@ -58,7 +58,7 @@ class Book extends Component {
             <p>{this.props.book.title?this.props.book.title:''}</p>
             <p><strong>{this.props.book.authors?this.props.book.authors[0]:''}</strong></p>
           </div>
-          <div className={classes.dropdown} role='button' onClick={()=> this.showModalHandler()}><DropDown /></div>
+          <div className={classes.dropdown} role='button' tabIndex="0" onClick={()=> this.showModalHandler()}><DropDown /></div>
           <Modal  modalShow={this.state.modalShow} checkboxes={this.state.checkboxes} change={this.onCheckboxSelect}/>
         </div>
 

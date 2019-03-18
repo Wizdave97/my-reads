@@ -17,12 +17,12 @@ class Search extends React.Component {
       query:query.trim()
     })
     search(this.state.query.trim()).then(books=>{
-      if(books==undefined || books.error) return
+      if(books===undefined || books.error) return
 
       getAll().then(libbooks=>{
         for(let book of books ){
           for(let libbook of libbooks){
-            if(book.id==libbook.id){
+            if(book.id===libbook.id){
               book.shelf=libbook.shelf
               break;
             }
@@ -37,11 +37,11 @@ class Search extends React.Component {
   }
   render(){
     let results=null;
-    let networkError,pending,shelfs;
-    if(this.state.pending){
-      pending=(<h3 style={{textAlign:'center'}}>Loading...</h3>);
-    }
-    else if(this.state.networkError){
+    let networkError//pending,shelfs;
+    //if(this.state.pending){
+    //  pending=(<h3 style={{textAlign:'center'}}>Loading...</h3>);
+    //}
+    if(this.state.networkError){
       networkError=(<h3 style={{textAlign:'center'}}>A network Error Occured!!! Check your internet connection and try again</h3>);
     }
     if(this.state.query && this.state.books!==undefined && this.state.books.length!==0){
