@@ -13,8 +13,11 @@ class Search extends React.Component {
   }
   onUpdateQuery=(event)=>{
     let query=event.target.value;
-    this.setState({query:query.trim()})
-    search(query.trim()).then(books=>{
+    this.setState({
+      query:query.trim()
+    })
+    search(this.state.query.trim()).then(books=>{
+      if(books==undefined || books.error) return
       this.setState({
         books:books
       })
@@ -29,11 +32,11 @@ class Search extends React.Component {
     else if(this.state.networkError){
       networkError=(<h3 style={{textAlign:'center'}}>A network Error Occured!!! Check your internet connection and try again</h3>);
     }
-    if(this.state.query && this.state.books){
+    if(this.state.query && this.state.books!==undefined && this.state.books.length!==0){
       results=(<div className={classes.results}>{
-        this.state.books.map(book=>{
+        this.state.books?this.state.books.map(book=>{
           return <Book key={book.id} book={book} update={update}/>
-        })
+        }):''
       }</div>)
     }
     return(

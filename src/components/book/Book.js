@@ -53,10 +53,10 @@ class Book extends Component {
     return (
 
         <div className={classes.book}>
-          <img src={this.props.book.imageLinks.thumbnail} alt={this.props.book.title}/>
+          <img src={this.props.book.imageLinks?this.props.book.imageLinks.thumbnail:''} alt={this.props.book.title?this.props.book.title:''}/>
           <div className={classes.details}>
-            <p>{this.props.book.title}</p>
-            <p>{this.props.book.authors[0]}</p>
+            <p>{this.props.book.title?this.props.book.title:''}</p>
+            <p><strong>{this.props.book.authors?this.props.book.authors[0]:''}</strong></p>
           </div>
           <div className={classes.dropdown} role='button' onClick={()=> this.showModalHandler()}><DropDown /></div>
           <Modal  modalShow={this.state.modalShow} checkboxes={this.state.checkboxes} change={this.onCheckboxSelect}/>

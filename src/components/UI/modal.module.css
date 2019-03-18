@@ -6,8 +6,8 @@
   margin:0;
   display:none;
   box-shadow: -10px -10px 15px rgba(0,0,0,0.3), 10px 10px 15px rgba(0,0,0,0.3);
-  bottom:-20px;
-  right:20px;
+  bottom:10px;
+  right:5px;
   position:absolute;
   z-index:1000;
   background-color: white;

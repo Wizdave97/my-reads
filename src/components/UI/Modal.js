@@ -15,7 +15,7 @@ const modal =(props)=> {
       checkboxes=props.checkboxes;
       return(
         <div ref={modal} className={classes.modal} style={style}>
-          <ul role="list-group">
+          <ul role="listgroup">
             {options.map((option,index)=>{
               return (<li key={index}><Checkbox change={props.change} name={shelfNames[index]} checked={checkboxes[shelfNames[index]]}/>{option}</li>)
             })}

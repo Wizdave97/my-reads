@@ -4,6 +4,10 @@
   min-height: 100%;
   flex-wrap: wrap;
   padding: 0;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+h2{
+  font-size: 2em;
 }
 .navbar{
   width:100%;
@@ -13,6 +17,7 @@
   color:rgba(0,0,0,0.9);
   box-shadow: 0px 10px 15px rgba(0,0,0,0.3);
   margin-bottom:10px;
+  font-family: 'Indie Flower', cursive;
 }
 .content{
   width:100%;
