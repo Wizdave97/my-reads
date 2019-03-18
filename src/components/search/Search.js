@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './search.module.css';
 import SearchInput from './searchInput/SearchInput';
 import Book from '../book/Book';
-import { search,update } from '../../BooksAPI';
+import { search, update, getAll } from '../../BooksAPI';
 
 
 class Search extends React.Component {
@@ -18,8 +18,20 @@ class Search extends React.Component {
     })
     search(this.state.query.trim()).then(books=>{
       if(books==undefined || books.error) return
-      this.setState({
-        books:books
+
+      getAll().then(libbooks=>{
+        for(let book of books ){
+          for(let libbook of libbooks){
+            if(book.id==libbook.id){
+              book.shelf=libbook.shelf
+              break;
+            }
+            else(book.shelf='none')
+          }
+        }
+        this.setState({
+          books:books
+        })
       })
     })
   }
