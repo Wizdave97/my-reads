@@ -8,6 +8,13 @@ intend to read.
 
 In the project directory, you can run:
 
+## Installing the project
+Clone the repository then navigate to the project folder from the commandline and run
+### `npm install`
+Note: You must have nodeJs installed on your local machine
+
+## Starting the project
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
