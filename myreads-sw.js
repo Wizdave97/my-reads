@@ -27,12 +27,13 @@ self.addEventListener('activate',function(event) {
 
 self.addEventListener('fetch',function(event) {
   let requestUrl = new URL(event.request.url);
-  console.log(requestUrl.origin);
-  console.log(requestUrl.pathname);
+  
   if(requestUrl.origin===location.origin){
     if(requestUrl.pathname==='/my-reads/'){
+      console.log(requestUrl.origin);
+      console.log(requestUrl.pathname);
       event.respondWith(
-        caches.match('./index.html')
+        caches.match('/index.html')
       )
       return
     }
