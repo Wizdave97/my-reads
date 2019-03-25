@@ -28,7 +28,7 @@ self.addEventListener('activate',function(event) {
 self.addEventListener('fetch',function(event) {
   let requestUrl = new URL(event.request.url);
   if(requestUrl.origin===location.origin){
-    if(requestUrl.pathname==='/my-reads'){
+    if(requestUrl.pathname==='/my-reads/'){
       event.respondWith(
         caches.match('./index.html')
       )
