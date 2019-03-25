@@ -1,10 +1,10 @@
 let staticCacheName='my-reads-v1';
 self.addEventListener('install', function(event) {
   urlToCache=[
-    '/index.html',
-    '/static/js/bundle.js',
-    '/static/js/0.chunk.js',
-    '/static/js/main.chunk.js',
+    'https://wizdave97.github.io/my-reads/index.html',
+    'https://wizdave97.github.io/my-reads/static/js/bundle.js',
+    'https://wizdave97.github.io/my-reads/static/js/0.chunk.js',
+    'https://wizdave97.github.io/my-reads/static/js/main.chunk.js',
     'https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei',
     'https://fonts.googleapis.com/css?family=Indie+Flower'
   ];
