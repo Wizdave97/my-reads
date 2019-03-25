@@ -5,7 +5,7 @@ self.addEventListener('install', function(event) {
     './static/js/2.163dad9c.chunk.js',
     './static/js/2.163dad9c.chunk.js.map',
     './static/js/main.227dd091.chunk.js',
-    '/static/js/main.227dd091.chunk.js.map',
+    './static/js/main.227dd091.chunk.js.map',
     './static/js/runtime~main.464cac55.js',
     './static/js/runtime~main.464cac55.js.map',
     'https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei',
