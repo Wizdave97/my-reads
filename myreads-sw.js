@@ -1,10 +1,10 @@
 let staticCacheName='my-reads-v1';
 self.addEventListener('install', function(event) {
   urlToCache=[
-    '/index.html',
-    '/static/js/bundle.js',
-    '/static/js/0.chunk.js',
-    '/static/js/main.chunk.js',
+    './index.html',
+    './static/css/main.3856eff4.chunk.css',
+    './static/js/2.2ee99cb9.chunk.js',
+    './static/js/main.20767245.chunk.js',
     'https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei',
     'https://fonts.googleapis.com/css?family=Indie+Flower'
   ];
@@ -28,7 +28,7 @@ self.addEventListener('activate',function(event) {
 self.addEventListener('fetch',function(event) {
   let requestUrl = new URL(event.request.url);
   if(requestUrl.origin===location.origin){
-    if(requestUrl.pathname==='/'){
+    if(requestUrl.pathname==='/my-reads'){
       event.respondWith(
         caches.match('/index.html')
       )
