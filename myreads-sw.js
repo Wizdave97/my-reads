@@ -29,7 +29,7 @@ self.addEventListener('fetch',function(event) {
   let requestUrl = new URL(event.request.url);
   
   if(requestUrl.origin===location.origin){
-    if(requestUrl.pathname==='/my-reads/'){
+    if(requestUrl.pathname==='/my-reads'){
       console.log(requestUrl.origin);
       console.log(requestUrl.pathname);
       event.respondWith(
