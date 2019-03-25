@@ -2,7 +2,7 @@ let staticCacheName='my-reads-v1';
 self.addEventListener('install', function(event) {
   urlToCache=[
     './index.html',
-    './static/css/main.3856eff4.chunk.css'
+    './static/css/main.3856eff4.chunk.css',
     './static/js/2.163dad9c.chunk.js',
     './static/js/main.227dd091.chunk.js',
     'https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei',
