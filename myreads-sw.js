@@ -29,7 +29,7 @@ self.addEventListener('fetch',function(event) {
   if(requestUrl.origin===location.origin){
     if(requestUrl.pathname==='/'){
       event.respondWith(
-        caches.match('/index.html')
+        caches.match('./index.html')
       )
       return
     }
